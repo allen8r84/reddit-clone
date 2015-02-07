@@ -16,7 +16,14 @@
                         <div class="panel-heading">
                             Recent Posts
                         </div>
-                        <div class="panel-body"></div>
+                        <div class="panel-body">
+                            <div ng-repeat="post in posts">
+                                <h1>{{post.title}}</h1>
+                                <em>{{post.timestamp | date : format : timezone}}</em>
+                                <p>{{post.body}}</p>
+                                <em>{{post.author}}</em>
+                            </div>
+                        </div>
                         <div class="panel-footer"></div>
                     </div>
                 </div>
@@ -26,7 +33,7 @@
                             Submit new Post
                         </div>
                         <div class="panel-body">
-                            <form class="form" ng-submit="newPost()">
+                            <form class="form" ng-submit="addPost()">
                                 <div class="form-group">
                                     <label>Title</label>
                                     <input class="form-control" type="text" placeholder="title" ng-model="newPost.title"></input>
@@ -42,8 +49,14 @@
                             </form>
                         </div>
                         <div class="panel-footer">
-                            <button ng-click="newPost()">Post</button>
-                            <button ng-click="reset()">Clear</button>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button class="btn btn-info btn-block" ng-click="addPost()">Post</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-default btn-block" ng-click="reset()">Clear</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
