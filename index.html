@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/> <!-- bootsrap styles CDN loading -->
         <link rel="stylesheet" type="text/css" href="style.css"/>
     </head>
-    <body ng-controller="PostController">
+    <body ng-controller="PostController"> <!-- all these classes are bootsrap and i don't really know them yet... -->
         <div class="container">
             <div class="jumbotron">
                 <h1>{{test}}</h1>        
@@ -26,10 +26,24 @@
                             Submit new Post
                         </div>
                         <div class="panel-body">
-                            PUT FORM HERE
+                            <form class="form" ng-submit="newPost()">
+                                <div class="form-group">
+                                    <label>Title</label>
+                                    <input class="form-control" type="text" placeholder="title" ng-model="newPost.title"></input>
+                                </div>
+                                <div class="form-group">
+                                    <label>Body</label>
+                                    <textarea class="form-control" type="text" placeholder="body" ng-model="newPost.body"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Author</label>
+                                    <input class="form-control" type="text" placeholder="author" ng-model="newPost.author"></input>
+                                </div>    
+                            </form>
                         </div>
                         <div class="panel-footer">
-                            PUT SUBMIT BUTTONS HERE
+                            <button ng-click="newPost()">Post</button>
+                            <button ng-click="reset()">Clear</button>
                         </div>
                     </div>
                     
